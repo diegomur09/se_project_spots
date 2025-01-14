@@ -1,0 +1,20 @@
+.profile {
+  display: flex;
+  gap: 20px;
+}
+.profile__avatar {
+  width: 190px;
+  height: 230px;
+}
+.profile__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__edit-btn {
+  margin-top: auto;
+}
+
+.profile__add-btn {
+  margin-left: auto;
+}
