@@ -1,14 +1,17 @@
 .cards {
-  padding-top: 20px;
+  padding: 20px 0 40px;
 }
 .cards__list {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, 413px);
   justify-content: center;
   gap: 40px 20px;
+}
+.cards {
+  border-bottom: 1px rgb(33, 33, 33, 0.4) solid;
 }
 
 @media screen and (max-width: 627px) {

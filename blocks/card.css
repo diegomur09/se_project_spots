@@ -6,6 +6,7 @@
   width: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 8px;
 }
 .card__content {
   display: flex;
@@ -15,15 +16,35 @@
 
 .card__like-btn {
   background-image: url(../images/Union.svg);
+  margin: 12px 0 0;
   width: 23px;
   height: 20px;
   border: none;
   background-color: transparent;
   opacity: 40%;
 }
+.card__like-btn:hover {
+  cursor: url(../images/cursor.svg), auto;
+  color: rgba(33, 33, 33, 1);
+  opacity: inherit;
+}
+.card__title {
+  font-weight: 500;
+  font-size: 20px;
+  margin: 12px 0 0;
+}
 
 @media screen and (max-width: 627px) {
   .card__image {
     height: 288px;
+  }
+  .card__title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 288px;
+  }
+  .card__title {
+    font-size: 1em;
   }
 }
