@@ -1,3 +1,8 @@
 .content {
-  padding: 20px;
+  padding: 0;
+}
+@media screen and (max-with: 627px) {
+  .content {
+    margin: 0 16px;
+  }
 }
