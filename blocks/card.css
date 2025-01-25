@@ -12,11 +12,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 12px 0 0;
 }
 
 .card__like-btn {
   background-image: url(../images/Union.svg);
-  margin: 12px 0 0;
   width: 23px;
   height: 20px;
   border: none;
@@ -29,7 +29,9 @@
 }
 .card__title {
   color: rgba(33, 33, 33, 1);
+  max-width: fit-content;
   font-weight: 500;
+  font-size: 20px;
   line-height: 1.2;
   margin: 12px 0 0;
   text-overflow: ellipsis;
