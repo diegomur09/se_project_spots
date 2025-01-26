@@ -30,6 +30,10 @@ This project is a simple, responsive web page designed to showcase user profiles
 
 -[Deployment Link](https://diegomur09.github.io/se_project_spots/)
 
+## Video
+
+-[video](https://drive.google.com/file/d/1vnkuIowMxFbpS42sxtVnHo6kYZ5TklxD/view?usp=drive_link)
+
 ## Author
 
 **Diego Alejandro Navas Murcia** / **TripleTen Student**
