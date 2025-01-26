@@ -32,7 +32,7 @@ This project is a simple, responsive web page designed to showcase user profiles
 
 ## Video
 
--[video](https://drive.google.com/file/d/1vnkuIowMxFbpS42sxtVnHo6kYZ5TklxD/view?usp=drive_link)
+-[video](https://drive.google.com/file/d/1vnkuIowMxFbpS42sxtVnHo6kYZ5TklxD/view?usp=sharing)
 
 ## Author
 
