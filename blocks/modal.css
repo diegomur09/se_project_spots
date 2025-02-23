@@ -14,9 +14,9 @@
   padding: 0 16px;
 }
 
-.modal_opened {
+/*.modal_opened {
   visibility: visible;
-}
+}*/
 
 .modal__container {
   background: #fff;
@@ -27,10 +27,18 @@
   box-sizing: border-box;
   border-radius: 8px;
 }
+/*.modal__container_type_preview {
+  padding: 0;
+}
+
+.modal__image {
+  width: 100%;
+}
+  */
 
 .modal__close-btn {
   background-image: url(../images/Close\ Icon.svg);
-  background-color: #fff;
+  background-color: transparent;
   background-position: center;
   position: absolute;
   border-style: none;
@@ -43,7 +51,11 @@
   background-image: url(../images/Close\ icon2.svg);
   cursor: url(../images/cursor.svg), auto;
 }
-
+/*.modal__close-btn_2 {
+  background-image: url(../images/Close\ Icon3.svg);
+  top: 0;
+  margin-right: -172px;
+}*/
 .modal__title {
   margin: 0 0 32px;
   font-weight: 500;

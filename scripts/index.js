@@ -39,7 +39,10 @@ const editModalDesc = editProfileModal.querySelector(
 );
 
 const cardModal = document.querySelector("#add-card-modal");
+const cardForm = cardModal.querySelector(".modal__form");
 const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
+const cardNameInput = cardModal.querySelector("#add-card-name-input");
+const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
@@ -51,9 +54,22 @@ function getCardElement(data) {
 
   const cardNameEle = cardElement.querySelector(".card__title");
   const cardImageEle = cardElement.querySelector(".card__image");
+  const cardLikeBtn = cardElement.querySelector(".card__like-btn");
+  const cardDeleteBtn = cardElement.querySelector(".card__delete-btn");
+  //TODO - SELECT THE DELETE BUTTON
   cardNameEle.textContent = data.name;
   cardImageEle.src = data.link;
   cardImageEle.alt = data.name;
+
+  cardLikeBtn.addEventListener("click", () => {
+    cardLikeBtn.classList.toggle("card__like-btn_liked");
+  });
+
+  cardDeleteBtn.addEventListener("click", () => {
+    cardElement.remove();
+  });
+  //TODO - ser the listener in delete button
+  // The handeler should remove the card from DOM
 
   return cardElement;
 }
@@ -70,6 +86,17 @@ function handleEditFormSubmit(evt) {
   profileName.textContent = editModalName.value;
   profileDesc.textContent = editModalDesc.value;
   closeModal(editProfileModal);
+}
+
+function handleAddCardSubmit(evt) {
+  evt.preventDefault();
+
+  const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
+  const cardElement = getCardElement(inputValues);
+
+  cardsList.prepend(cardElement);
+  closeModal(cardModal);
+  cardForm.reset();
 }
 
 profileEditButton.addEventListener("click", () => {
@@ -89,6 +116,7 @@ cardModalCloseBtn.addEventListener("click", () => {
 });
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
+cardForm.addEventListener("submit", handleAddCardSubmit);
 
 initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
