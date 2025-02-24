@@ -44,6 +44,11 @@ const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 
+const previewModal = document.querySelector("#preview-modal");
+const previewImageEl = previewModal.querySelector(".modal__image");
+const previewImageCaption = previewModal.querySelector(".modal__caption");
+const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn_2");
+
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
@@ -56,7 +61,7 @@ function getCardElement(data) {
   const cardImageEle = cardElement.querySelector(".card__image");
   const cardLikeBtn = cardElement.querySelector(".card__like-btn");
   const cardDeleteBtn = cardElement.querySelector(".card__delete-btn");
-  //TODO - SELECT THE DELETE BUTTON
+
   cardNameEle.textContent = data.name;
   cardImageEle.src = data.link;
   cardImageEle.alt = data.name;
@@ -65,11 +70,17 @@ function getCardElement(data) {
     cardLikeBtn.classList.toggle("card__like-btn_liked");
   });
 
+  cardImageEle.addEventListener("click", () => {
+    openModal(previewModal);
+    previewImageEl.textContent = data.name;
+    previewImageEl.src = data.link;
+    previewImageEl.alt = data.name;
+    previewImageCaption.textContent = data.name;
+  });
+
   cardDeleteBtn.addEventListener("click", () => {
     cardElement.remove();
   });
-  //TODO - ser the listener in delete button
-  // The handeler should remove the card from DOM
 
   return cardElement;
 }
@@ -113,6 +124,9 @@ cardModalButton.addEventListener("click", () => {
 });
 cardModalCloseBtn.addEventListener("click", () => {
   closeModal(cardModal);
+});
+previewModalCloseBtn.addEventListener("click", () => {
+  closeModal(previewModal);
 });
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
