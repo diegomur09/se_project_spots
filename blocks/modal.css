@@ -75,7 +75,7 @@
   background-image: url(../images/Close\ icon2.svg);
   cursor: url(../images/cursor.svg), auto;
 }
-.modal__close-btn_2 {
+.modal__close-btn_type_preview {
   background-image: url(../images/Close\ Icon3.svg);
   top: 0;
   right: -57.5px;
@@ -156,10 +156,16 @@
   .modal__submit-btn {
     width: 100%;
   }
-  .modal__close-btn_2 {
+  .modal__close-btn_type_preview {
     height: 40px;
     width: 40px;
     top: -28px;
-    right: 32px;
+  }
+  .modal__container_type_preview {
+    max-width: 90vw;
+  }
+  .modal__image {
+    max-width: 288px;
+    max-height: 70vh;
   }
 }

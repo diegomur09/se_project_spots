@@ -32,7 +32,7 @@ const profileDesc = document.querySelector(".profile__description");
 
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editFormElement = editProfileModal.querySelector(".modal__form");
-const modalCloseButton = editProfileModal.querySelector(".modal__close-btn");
+const profileCloseButton = editProfileModal.querySelector(".modal__close-btn");
 const editModalName = editProfileModal.querySelector("#profile-name-input");
 const editModalDesc = editProfileModal.querySelector(
   "#profile-description-input"
@@ -47,7 +47,9 @@ const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 const previewModal = document.querySelector("#preview-modal");
 const previewImageEl = previewModal.querySelector(".modal__image");
 const previewImageCaption = previewModal.querySelector(".modal__caption");
-const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn_2");
+const previewModalCloseBtn = previewModal.querySelector(
+  ".modal__close-btn_type_preview"
+);
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
@@ -72,7 +74,6 @@ function getCardElement(data) {
 
   cardImageEle.addEventListener("click", () => {
     openModal(previewModal);
-    previewImageEl.textContent = data.name;
     previewImageEl.src = data.link;
     previewImageEl.alt = data.name;
     previewImageCaption.textContent = data.name;
@@ -115,7 +116,7 @@ profileEditButton.addEventListener("click", () => {
   editModalDesc.value = profileDesc.textContent;
   openModal(editProfileModal);
 });
-modalCloseButton.addEventListener("click", () => {
+profileCloseButton.addEventListener("click", () => {
   closeModal(editProfileModal);
 });
 
