@@ -57,7 +57,7 @@
   background-color: rgba(33, 33, 33, 1);
   border-radius: 8px;
   padding: 4px 8px;
-  margin-top: 0;
+  margin: 0;
 }
 
 .modal__close-btn {
@@ -159,10 +159,14 @@
   .modal__close-btn_type_preview {
     height: 40px;
     width: 40px;
-    top: -28px;
+    top: -48px;
+    margin-right: -16px;
+    margin-bottom: 8px;
+    padding: 0;
   }
   .modal__container_type_preview {
     max-width: 90vw;
+    padding: 0;
   }
   .modal__image {
     max-width: 288px;
