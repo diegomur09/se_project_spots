@@ -107,6 +107,7 @@
   font-size: 20px;
   line-height: 1;
 }
+
 .modal__input:hover {
   cursor: url(../images/cursor.svg), auto;
   border-color: rgba(33, 33, 33, 1);
@@ -116,6 +117,15 @@
   font-size: 20px;
   line-height: 1;
   color: rgba(33, 33, 33, 0.3);
+}
+
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+.modal__error {
+  color: rgba(255, 0, 0, 0.7);
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .modal__submit-btn {
