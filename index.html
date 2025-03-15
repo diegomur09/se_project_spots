@@ -52,9 +52,14 @@
       </footer>
       <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
-          <button type="submit" class="modal__close-btn"></button>
+          <button type="button" class="modal__close-btn"></button>
           <h2 class="modal__title">Edit profile</h2>
-          <form name="edit profile" class="modal__form" novalidate>
+          <form
+            name="edit profile"
+            class="modal__form"
+            id="profile-form"
+            novalidate
+          >
             <label for="profile-name-input" class="modal__label">
               Name
               <input
@@ -94,7 +99,7 @@
 
     <div class="modal" id="add-card-modal">
       <div class="modal__container">
-        <button type="submit" class="modal__close-btn"></button>
+        <button type="button" class="modal__close-btn"></button>
         <h2 class="modal__title">New post</h2>
         <form
           name="edit profile"

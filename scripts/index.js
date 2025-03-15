@@ -1,4 +1,3 @@
-//pass settings object to the validation functions that are called in this file
 const initialCards = [
   {
     name: "Val Thorens",
@@ -32,7 +31,7 @@ const profileName = document.querySelector(".profile__name");
 const profileDesc = document.querySelector(".profile__description");
 
 const editProfileModal = document.querySelector("#edit-profile-modal");
-const editFormElement = editProfileModal.querySelector(".modal__form");
+const editFormElement = document.forms["profile-form"];
 const profileCloseButton = editProfileModal.querySelector(".modal__close-btn");
 const editModalName = editProfileModal.querySelector("#profile-name-input");
 const editModalDesc = editProfileModal.querySelector(
@@ -90,7 +89,6 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  closeOverlayClick(modal);
   document.addEventListener("keydown", closeEscapeKey);
 }
 
@@ -99,20 +97,11 @@ function closeModal(modal) {
   document.removeEventListener("keydown", closeEscapeKey);
 }
 
-function closeOverlayClick(modal) {
-  modal.addEventListener("click", (evt) => {
-    if (evt.target === modal) {
-      closeModal(modal);
-    }
-  });
-}
-
 function closeEscapeKey(evt) {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
     if (openedModal) {
       closeModal(openedModal);
-      document.removeEventListener("keydown", closeEscapeKey);
     }
   }
 }
@@ -130,7 +119,7 @@ function handleAddCardSubmit(evt) {
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
-  disabledButton(cardSumitBtn, settings);
+  disabledButton(cardSumitBtn, config);
   closeModal(cardModal);
   cardForm.reset();
 }
@@ -161,4 +150,14 @@ cardForm.addEventListener("submit", handleAddCardSubmit);
 initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
+});
+
+const modals = [editProfileModal, cardModal, previewModal];
+
+modals.forEach((modal) => {
+  modal.addEventListener("click", (evt) => {
+    if (evt.target === modal) {
+      closeModal(modal);
+    }
+  });
 });
