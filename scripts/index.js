@@ -119,7 +119,7 @@ function handleAddCardSubmit(evt) {
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
-  disabledButton(cardSumitBtn, config);
+  disabledButton(cardSumitBtn, settings);
   closeModal(cardModal);
   cardForm.reset();
 }
