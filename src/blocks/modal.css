@@ -61,7 +61,7 @@
 }
 
 .modal__close-btn {
-  background-image: url(../images/Close\ Icon.svg);
+  background-image: url(../images/CloseIcon.svg);
   background-color: transparent;
   background-position: center;
   position: absolute;
@@ -72,11 +72,11 @@
   height: 40px;
 }
 .modal__close-btn:hover {
-  background-image: url(../images/Close\ icon2.svg);
+  background-image: url(../images/Closeicon2.svg);
   cursor: url(../images/cursor.svg), auto;
 }
 .modal__close-btn_type_preview {
-  background-image: url(../images/Close\ Icon3.svg);
+  background-image: url(../images/CloseIcon3.svg);
   top: 0;
   right: -57.5px;
 }

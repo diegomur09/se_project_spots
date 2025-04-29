@@ -1,3 +1,14 @@
+import logo from "../images/Logo(1).svg";
+import pencilIcon from "../images/pencil.svg";
+import plusIcon from "../images/plus.svg";
+import avatarImg from "../images/avatar.jpg";
+import "./index.css";
+import {
+  enableValidation,
+  settings,
+  resetValidation,
+} from "../scripts/validation";
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -161,3 +172,17 @@ modals.forEach((modal) => {
     }
   });
 });
+
+enableValidation(settings);
+
+const headerLogo = document.getElementById("spot-logo");
+headerLogo.src = logo;
+
+const avatar = document.getElementById("user");
+avatar.src = avatarImg;
+
+const editBtnIcon = document.getElementById("pencil");
+editBtnIcon.src = pencilIcon;
+
+const addBtnIcon = document.getElementById("plus-icon");
+addBtnIcon.src = plusIcon;
