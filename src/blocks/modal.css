@@ -148,6 +148,21 @@
   pointer-events: none;
 }
 
+.delete_content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+}
+.delete__content-buttons {
+  display: flex;
+  gap: 20px;
+}
+.delete_close {
+  position: absolute;
+  bottom: 133px;
+}
 @media screen and (max-width: 627px) {
   .modal {
     padding: 0 10px;
