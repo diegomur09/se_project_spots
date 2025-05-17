@@ -43,7 +43,7 @@ import { setButtonText, setButtonDelete } from "../utils/helpers.js";
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
-    authorization: "d0304a81-abf2-410f-b894-cb79278fec37",
+    authorization: "42fc4f9e-a566-4421-b831-64a5484ccc78",
     "Content-Type": "application/json",
   },
 });
@@ -51,8 +51,9 @@ const api = new Api({
 api
   .getAppInfo()
   .then(([cards, userInfo]) => {
+    currentUserId = userInfo._id; //saving info here
     cards.forEach((item) => {
-      const cardElement = getCardElement(item);
+      const cardElement = getCardElement(item, currentUserId);
       cardsList.append(cardElement);
     });
     profileName.textContent = userInfo.name;
@@ -111,8 +112,9 @@ const cardsList = document.querySelector(".cards__list");
 
 let selectedCard;
 let selectedCardId;
+let currentUserId;
 
-function getCardElement(data) {
+function getCardElement(data, currentUserId) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
     .cloneNode(true);
@@ -125,6 +127,11 @@ function getCardElement(data) {
   cardNameEle.textContent = data.name;
   cardImageEle.src = data.link;
   cardImageEle.alt = data.name;
+
+  //button like state
+  if (data.isLiked) {
+    cardLikeBtn.classList.add("card__like-btn_liked");
+  }
 
   cardLikeBtn.addEventListener("click", (evt) => {
     handleLikebtn(evt, data._id);
@@ -184,22 +191,29 @@ function handleDeleteCard(cardElement, cardId) {
   openModal(deleteModal);
 }
 
-function handleLikebtn(evt, CardId) {
+function handleLikebtn(evt, cardId) {
   const likeButton = evt.target;
-  const isLiked = likeButton.classList.contains("card__like-btn_liked");
+
+  const isCurrentlyLiked = likeButton.classList.contains(
+    "card__like-btn_liked"
+  );
 
   api
-    .handleLike(CardId, isLiked)
-    .then(() => {
-      likeButton.classList.toggle("card__like-btn_liked");
+    .handleLike(cardId, isCurrentlyLiked)
+    .then((updatedCard) => {
+      if (updatedCard.isLiked) {
+        likeButton.classList.add("card__like-btn_liked");
+      } else {
+        likeButton.classList.remove("card__like-btn_liked");
+      }
     })
     .catch(console.error);
-  //evt.target.classList.toggle("card__like-btn_liked");
-  //check weather card is liked or not const isliked ?
-  //cal the changeLikestatus method, pssing it the apropiatte arguments
-  //handle the response
-  //in the .then() toogle the active class
 }
+//evt.target.classList.toggle("card__like-btn_liked");
+//check weather card is liked or not const isliked ?
+//cal the changeLikestatus method, pssing it the apropiatte arguments
+//handle the response
+//in the .then() toogle the active class
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
