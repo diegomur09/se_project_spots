@@ -209,11 +209,6 @@ function handleLikebtn(evt, cardId) {
     })
     .catch(console.error);
 }
-//evt.target.classList.toggle("card__like-btn_liked");
-//check weather card is liked or not const isliked ?
-//cal the changeLikestatus method, pssing it the apropiatte arguments
-//handle the response
-//in the .then() toogle the active class
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
